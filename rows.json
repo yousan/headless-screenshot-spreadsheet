@@ -1,0 +1,52 @@
+[
+  [
+    {
+      "ID": "001",
+      "URL": "https://github.com/yousan/headless-screenshot-spreadsheet/tree/62926398478c17b370e6595040c8f9a8ced77753",
+      "action": "check",
+      "key": ".public",
+      "value": "yousan",
+      "screenshot": "トップ画面"
+    },
+    {
+      "ID": "002",
+      "URL": "",
+      "action": "click",
+      "key": "#\\30 4c6e90faac2675aa89e2176d2eec7d8-e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "value": "",
+      "screenshot": "READMEを表示"
+    },
+    {
+      "ID": "003",
+      "URL": "https://github.com/yousan/headless-screenshot-spreadsheet/tree/62926398478c17b370e6595040c8f9a8ced77753",
+      "action": "input",
+      "key": "input[name=\"q\"]",
+      "value": "README",
+      "screenshot": "フォーム入力完了画面"
+    },
+    {
+      "ID": "004",
+      "URL": "",
+      "action": "check",
+      "key": ".public",
+      "value": "hogeo",
+      "screenshot": "エラーになることの確認"
+    },
+    {
+      "ID": "005",
+      "URL": "https://www.youtube.com",
+      "action": "input",
+      "key": "#search-input",
+      "value": "面白い動画",
+      "screenshot": "なし"
+    },
+    {
+      "ID": "006",
+      "URL": "",
+      "action": "click",
+      "key": "#search-icon-legacy",
+      "value": "",
+      "screenshot": "検索結果画面"
+    }
+  ]
+]
