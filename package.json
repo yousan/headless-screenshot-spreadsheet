@@ -11,7 +11,7 @@
     "url": "git+https://github.com/yousan/headless-screenshot-spreadsheet.git"
   },
   "engines": {
-    "node": ">=6.4.0"
+    "node": ">=8.10.0"
   },
   "keywords": [
     "headless",
@@ -25,6 +25,8 @@
   "homepage": "https://github.com/yousan/headless-screenshot-spreadsheet#readme",
   "dependencies": {
     "csvtojson": "^1.1.9",
+    "eslint": "^5.6.1",
+    "eslint-config-airbnb": "^17.1.0",
     "puppeteer": "^1.8.0",
     "request": "^2.85.0",
     "yargs": "^11.0.0"
