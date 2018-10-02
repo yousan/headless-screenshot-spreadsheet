@@ -12,7 +12,7 @@ describe('test input action with defined URL', () => {
       value: 'hogehoge',
       screenshot: '',
     };
-    const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox'] });
+    const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
     const page = await browser.newPage();
     let result = await doAction(page, json);
     expect(result.status).toEqual('success');
@@ -27,7 +27,7 @@ describe('test input action with defined URL', () => {
 // TODO: rows.jsonに対応したテストに書き換える
 describe.skip('test set action', async () => {
   test('set authentication parameter then access page.', async () => {
-    const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox'] });
+    const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
     const page = await browser.newPage();
 
     let result = await doAction(page, rows[0]);
@@ -40,12 +40,12 @@ describe.skip('test set action', async () => {
     expect(page.url()).toEqual(rows[2].URL);
     expect(result.status).toEqual('success');
     browser.close();
-  }), 1000 * 10;
+  }, 1000 * 10);
 });
 
 describe.skip('test check action', async () => {
   test('doAction check #password', async () => {
-    const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox'] });
+    const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
     const page = await browser.newPage();
     await doAction(page, rows[0]);
     await doAction(page, rows[1]);
