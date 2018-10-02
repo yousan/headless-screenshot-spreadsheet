@@ -1,8 +1,8 @@
 #!/usr/bin/env node
+const hss = require('./index.js');
 
 try {
-    const hss = require('./index.js');
-    hss.cli();
-} catch ( e ) {
-
+  hss.cli();
+} catch (e) {
+  console.log(e);
 }

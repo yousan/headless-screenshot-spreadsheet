@@ -1,0 +1,19 @@
+{
+  "env": {
+    "node": true
+  },
+  "extends": "airbnb-base",
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.config.js"
+      }
+    }
+  },
+  "rules": {
+    "import/prefer-default-export": "off",
+    "import/no-unresolved": "off",
+    "no-unused-vars": "off",
+    "no-undef": "off"
+  }
+}
