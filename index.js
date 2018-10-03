@@ -1,5 +1,5 @@
 const request = require('request');
-const csv = require('csvtojson');
+const csv = require('csvtojson/v1');
 const puppeteer = require('puppeteer');
 const doAction = require('./doAction');
 const takeSS = require('./takeSS');
@@ -31,7 +31,7 @@ module.exports = {
      */
     launch_options: {
         headless: true,
-        args: ['--no-sandbox', '--lang=ja'] // デフォルトでは言語設定が英語なので日本語に変更
+        args: ['--no-sandbox', '--disable-setuid-sandbox', '--lang=ja'] // デフォルトでは言語設定が英語なので日本語に変更
     },
 
     /**
@@ -54,6 +54,7 @@ module.exports = {
         await this.process_rows(browser, csv);
         await browser.close();
         // console.log(this.results);
+        return this.results;
     },
 
     /**
