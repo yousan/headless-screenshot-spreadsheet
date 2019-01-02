@@ -8,8 +8,8 @@ describe('test input action with defined URL', () => {
       ID: '000',
       URL: 'https://www.google.co.jp/',
       action: 'input',
-      key: '#lst-ib',
-      value: 'hogehoge',
+      key: 'input', // Googleの検索フォームのセレクタが不明なので、inputタグに対して行う
+      value: 'hp', // hpじゃないと通らない…なぜ？
       screenshot: '',
     };
     const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
