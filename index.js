@@ -18,6 +18,7 @@ module.exports = {
      */
     options: {
         dest: 'ss',
+        waitfor: 0,
     },
 
     /**
@@ -76,6 +77,19 @@ module.exports = {
     },
 
     /**
+     * actionがsetでkeyがwaitforの場合、各ページ遷移の待ち時間を設定する。
+     * doActionだと親側でみてやる。
+     *
+     * @param row
+     */
+  process_waitfor: async function(row) {
+    if (row.action === 'set' && row.key === 'waitfor') {
+      this.options.waitfor = parseInt(row.value, 10);
+      console.log(`Setting waitfor as ${this.options.waitfor} milliseconds.`);
+    }
+  },
+
+    /**
      * 各行を処理する
      *
      * @param browser
@@ -90,9 +104,10 @@ module.exports = {
             if (!this.is_activate(rows[i])) {
                 continue;
             }
+            await this.process_waitfor(rows[i]);
             result.ID = rows[i].ID; // 一行処理開始
-            //let actioned = await this.do_action(page, rows[i]);
             const actioned = await doAction(page, rows[i]);
+            await page.waitFor(this.options.waitfor);
             result.action = actioned.action;
             result.status = actioned.status;
             result.screenshot = rows[i].screenshot;
@@ -173,16 +188,18 @@ module.exports = {
                 // BASIC認証を通す
                 const auth = new Buffer(row.key + ':' + row.value).toString('base64');
                 await page.setExtraHTTPHeaders({
-                    'Authorization': `Basic ${auth}`
+                    'Authorization': `Basic ${auth}```
                 });
                 actioned.status = 'success';
-
                 break;
             case 'set':
                 switch (row.key) {
                     // サイズ決める
                     case 'Viewport':
                         await page.setViewport(JSON.parse(row.value));
+                        break;
+                    // case '':
+                    //     break;
                 }
                 actioned.status = 'success';
                 break;

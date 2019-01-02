@@ -103,6 +103,9 @@ async function main(page, row) {
           // csvtojsonはjson文字列をパースしないので注意
           await page.setViewport(JSON.parse(row.value));
           break;
+          case 'WaitFor': // Milliseconds waitfor each page e.g. 500
+          // 親側のindex.jsの変数を設定するのでここでは何もしない
+          break;
         default:
           break;
       }
