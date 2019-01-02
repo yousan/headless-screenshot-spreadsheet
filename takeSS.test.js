@@ -20,8 +20,8 @@ describe('test takeSS', function () {
         const buffer = fs.readFileSync(result);
         // CircleCIと手元の環境が違うせいなのか、生成される画像に微妙な誤差が出る。おそらくフォントの違いの予感。
         expect(buffer).toMatchImageSnapshot({
-            failureThreshold: '0.05',
-            failureThresholdType: 'percent'
+            failureThreshold: '0.30',
+            failureThresholdType: 'percent',
         });
         fs.unlinkSync(result);
         await page.close();
