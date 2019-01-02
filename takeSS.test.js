@@ -1,8 +1,8 @@
 const fs = require('fs');
 const takeSS = require('./takeSS');
 const puppeteer = require('puppeteer');
-const { toMatchImageSnapshot } = require('jest-image-snapshot');
-expect.extend({ toMatchImageSnapshot });
+const {toMatchImageSnapshot} = require('jest-image-snapshot');
+expect.extend({toMatchImageSnapshot});
 
 describe('test takeSS', function () {
     test('takeSS takes screenshot with destination dir and prefix', async function () {
